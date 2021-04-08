@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="addStyle.css">
+</head>
+<body>
+    <center>
+        <h1>संख्या  का  जोड़</h1>
+       <h1>How fast can you add?</h1>
+       <p>Instruction: You have 30 seconds to solve maximum questions. You can only proceed to next question if you type answer for current given question correctly. Press start button below and try your best. Good luck!!
+       <br><br><br><br>
+       <button onclick="displaytest()" id="startbutton"> Start</button>
+       <br>
+       <div id ="scoreAfterTest"></div>
+       <br><br>
+       <div id= "testarea">
+         <div class="countdownMessage"><p>Time Left: <span id="countdown">30 seconds</span></p></div>
+         <label for= "answer" id="question"></label>
+         <input type="number" name="answer" id="answer"  placeholder="Enter the sum here!"     autocomplete="off" oninput="calculate()">
+         <br/>
+         <div><p id="message"><p></div>
+       <div>
+     </center>
+     
+    <script src="addScript.js"></script>
+</body>
+</html>

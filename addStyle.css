@@ -1,0 +1,53 @@
+body {
+    font-family: Courier;
+background-color: Tan;
+font-weight: bold;
+}
+
+#question{
+
+font-size: 30px;
+}
+#answer{
+font-size: 20px;
+}
+#message{
+
+font-size: 20px;
+}
+#testarea{
+display: none;
+}
+
+#countdown{
+color: Maroon;
+}
+#scoreAfterTest{
+display: none;
+color: 	 #1d3030;
+}
+#startbutton{
+background-color: SaddleBrown; /* Green */
+border: 2px solid Sienna;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+margin: 4px 2px;
+cursor: pointer;
+/*   z-index: 1; */
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+margin-bottom:25px;
+}
+
+#startbutton:hover {
+  transform: scale(0.98);
+
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  /* Lowering the shadow */
+}
