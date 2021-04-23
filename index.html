@@ -4,28 +4,269 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="addStyle.css">
+    <title>Sankhyan | Swati Tripathi</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Delius">
+    <link rel="stylesheet" href="indexStyle.css">
+    <script>
+        window.onbeforeunload = function(event)
+        {
+            return confirm("Confirm refresh");
+        };
+    </script>
 </head>
 <body>
-    <center>
-        <h1>संख्या  का  जोड़</h1>
-       <h1>How fast can you add?</h1>
-       <p>Instruction: You have 30 seconds to solve maximum questions. You can only proceed to next question if you type answer for current given question correctly. Press start button below and try your best. Good luck!!
-       <br><br><br><br>
-       <button onclick="displaytest()" id="startbutton"> Start</button>
-       <br>
-       <div id ="scoreAfterTest"></div>
-       <br><br>
-       <div id= "testarea">
-         <div class="countdownMessage"><p>Time Left: <span id="countdown">30 seconds</span></p></div>
-         <label for= "answer" id="question"></label>
-         <input type="number" name="answer" id="answer"  placeholder="Enter the sum here!"     autocomplete="off" oninput="calculate()">
-         <br/>
-         <div><p id="message"><p></div>
-       <div>
-     </center>
-     
-    <script src="addScript.js"></script>
+    <div class="bodycontainer">
+        <!-- This header is only used when website is viewed in mobile -->
+        <div class="header">
+            <!-- This is navbar icon that gets only displayed if seen in mobile -->
+            <div class="tog" id="tog">
+                <p class="bar" id='bar'>&#8801;</p>
+            </div>
+            <!-- page title only available in mobile view -->
+            <div class="pagetitle">Sankhya</div>
+        </div>
+
+        <!-- Navigation bar : it appears as side-navbar if seen in more than 989px width screen and it appears as navbar icon button if seen in mobile or in screen with max- width  989 px-->
+        <div class="nav" id="nav">
+           <!-- <h1 class="sidebarTitle">Sankhya</h1> -->
+           <!-- List of buttons and link on side bar -->
+           <ul>
+               <li class="tabs" id = "sidebarTitle">Sankhya</li>
+               <li><button class="tabs" id="aboutbtn"  onclick="clickAboutSection()">
+                About | Start</button></li>
+               <li><button class="tabs" id="settingbtn"  onclick="clickSettingSection()">
+                Change Settings</button></li>
+               <li><a href="https://twitter.com/intent/tweet?text=Hi%20everyone%2C%20Are%20you%20slow%20in%20mental%20maths%3F%20Do%20you%20want%20to%20practise%20and%20improve%3F%20Then%20try%20out%20Sankhya%20-%20a%20mental%20maths%20quiz%20website%20to%20test%20your%20arithmetic%20abilities%20%5Bcreated%20by%20%40SwatiTr06172888%5D.%20Check%20out%20the%20website%20here%3A&url=https://swati-gwc.github.io/sankhya/&hashtags=maths,mentalmaths" class="tabs" target="_blank">Tweet me please!</a></li>
+               <li><a href="https://forms.gle/mCDappCYnaMHwwZn9" class="tabs" target="_blank">Give feedback</a></li>
+               <li><a href="https://youtu.be/aHEpKAd5V6Y" class="tabs" target="_blank">Watch my video</a></li>
+        
+               <!--  href="#" -->
+           </ul>
+        </div>
+
+        <!-- Main body content excluding sidebar and header -->
+        <div class="mainbody">
+            
+            <div class="submainbody">
+                <div class="testBtn">
+                <!-- Start button is to start the test -->
+                <button onclick="displayplaysection()" class="mainbodyBtn" id="startbutton"> Start</button>
+                <button onclick="stopTest()" class="mainbodyBtn" id="stopbutton"> Stop</button>
+                </div>
+                <!-- aboutsection is by default display:none but gets visible to user when #aboutbtn button is clicked and clickAboutSection() is called  -->
+                <div id="aboutsection">
+                    <span class="boldheading">Welcome to Sankhya</span><br>
+                    This is a mental maths quiz website where you can test your arithmetic calculation abilities. 
+                    <br>
+                    There are four basic arithmetic operations : Addition, Subtraction, Multiplication, Division. You can test yourself in any of the following combination of operations. Go to settings to choose question type and set duration for quiz. If you don't set any settings default value will be taken. 
+                    <br>
+                    <br><span class="boldheading">How this Quiz works?</span><br>
+                    <ol>
+                    1. When you press the start button, test will begin and timer will start. Once you type correct value, you will proceed to next question and your score will increase by one. If you type wrong answer you will not be able to proceed to next question and remain stuck on that question.
+                    </li>
+                    <li>
+                     2. While the test is going you will not be able to change settings or view about section. You have to stop the test in order to enable these options.
+                    </li>
+                    <li>
+                    3. For now there is no system to store your scores thus if you refresh the website the settings and your score will get lost and on reloading of website, settings will become default.
+                </li><li>
+                    4. Hope you enjoy the quiz. Please feel free to rate Sankhya and provide your feedback <a href="https://forms.gle/mCDappCYnaMHwwZn9" target="_blank">here</a>. 
+                    </li></ol>
+                    <br>
+                    This website is designed and created by <a href="https://www.linkedin.com/in/swati-tripathi-765615187/" target="_blank">Swati Tripathi</a>.
+                </div>
+                <!-- setting section is by default display none but gets visible to user when #settingbtn  buttonis clicked and then clickSettingSection() is called -->
+                <div id="settingsection">
+                    <span class="boldheading">Welcome to Setting Section</span>
+                    <br>
+                    Here you can change time and choose type of questions you want to be asked.
+                    <br><br>
+                    <span class="boldheading">
+                    1. Change duration of quiz
+                </span>
+                 <br>[Maximum value allowed is 300 seconds and minimum is 1 second.]
+                    <br>
+                    
+                    <label >Enter duration :</label>
+                    <input type="number" min="1" max="300" id="testTime" placeholder="30" oninput="validity.valid|| 
+                    (value='');"/>
+                    <label >(in seconds)</label>
+                    <br>
+                    <button onclick="changeTestSettings()" class="mainbodyBtn" id="testSettings">Save changed duration</button>
+                    
+                    <!-- <input type="text" name="product" list="productName"/>
+    <datalist id="productName">
+        <option value="Pen">Pen</option>
+        <option value="Pencil">Pencil</option>
+        <option value="Paper">Paper</option>
+    </datalist> -->
+                    <br><br>
+                    <span class="boldheading">
+                    2. Choose question type and then select range for the two numbers.
+                    </span>
+                    <br>
+                    For example if you check addition then you can also set the range  in which question should be asked. (Allowed range  is 1-1000 )
+
+                    <br>
+                    <form>
+                        <label>Check one or more operation given below:</label>
+                        <br>
+                        <!-- ADDITION CHECKBOX AND RANGE -->
+                        
+                        <input type="checkbox" class="operationCheckbox" id="additionCheckbox" name="additionCheckbox" value="+">
+                        <label for="additionCheckbox"> Addition</label>
+                        
+                        <!-- Asking users to enter Addition Range -->
+                        <div id="additionRange">
+                        <br>
+                        <label>Enter range for addition:</label>
+                        <br>
+                        <label>Number 1: From </label>
+                        <input type="number" min="1" max="1000" class="rangeInputBox" id="add1a"  placeholder="2" />
+                        <label>to </label>
+                        <input type="number" min="1" max="1000" class="rangeInputBox" id="add1b" placeholder="100" />
+                        <br>
+                        <label>Number 2: From </label>
+                        <input type="number" min="1" max="1000" class="rangeInputBox" id="add2a"  placeholder="2" />
+                        <label>to </label>
+                        <input type="number" min="1" max="1000" class="rangeInputBox" id="add2b"  placeholder="100" />
+                        </div>
+                        <!-- Addition Range Div Ends here -->
+                        <br>
+                         <!-- SUBTRACTION CHECKBOX AND RANGE -->
+                        
+                        <input type="checkbox"  class="operationCheckbox" id="subtractionCheckbox" name="subtractionCheckbox" value="-">
+                        <label for="subtractionCheckbox"> Subtraction</label>
+                        
+                        <!-- Asking users to enter Subtraction Range -->
+                        <div id="subtractionRange">
+                         <br>
+                         <label>Enter range for Subtraction:</label>
+                         <br>
+                         <label>Number 1: From </label>
+                         <input type="number" min="1"  max="1000" class="rangeInputBox" id="sub1a"  placeholder="1"/>
+                         <label>to </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="sub1b"  placeholder="29"/>
+                         <br>
+                         <label>Number 2: From </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="sub2a"  placeholder="30"/>
+                         <label>to </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="sub2b"  placeholder="100"/>
+                         </div>
+                         <!-- Subtraction Range Div Ends here -->
+                        <br>
+                        <!-- MULTIPLICATION CHECKBOX AND RANGE -->
+                        
+                        <input type="checkbox"  class="operationCheckbox" id="multiplicationCheckbox" name="multiplicationCheckbox" value="*">
+                        <label for="multiplicationCheckbox">Multiplication</label>
+                        
+                        <!-- Asking users to enter Multiplication Range -->
+                        <div id="multiplicationRange">
+                         <br>
+                         <label>Enter range for Multiplication:</label>
+                         <br>
+                         <label>Number 1: From </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="mul1a"  placeholder="2"/>
+                         <label>to </label>
+                         <input type="number"  min="1" max="1000" class="rangeInputBox" id="mul1b"  placeholder="20"/>
+                         <br>
+                         <label>Number 2: From </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="mul2a"  placeholder="2"/>
+                         <label>to </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="mul2b"  placeholder="20"/>
+                         </div>
+                         <!-- Multiplication Range Div Ends here -->
+                        <br>
+                        <!-- DIVISION CHECKBOX AND RANGE -->
+                        
+                        <input type="checkbox"  class="operationCheckbox" id="divisionCheckbox" name="divisionCheckbox" value="/">
+                        <label for="divisionCheckbox">Division</label>
+                       
+                        <!-- Asking users to enter Division Range -->
+                        <div id="divisionRange">
+                         <br>
+                         <label>Enter range for Division:</label>
+                         <br>
+                         <label>Number 1: From </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox" id="div1a"  placeholder="2"/>
+                         <label>to </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox"id="div1b"  placeholder="20" />
+                         <br>
+                         <label>Number 2: From </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox"id="div2a"  placeholder="2"/>
+                         <label>to </label>
+                         <input type="number" min="1" max="1000" class="rangeInputBox"id="div2b"  placeholder="20"/>
+                         </div>
+                         <!-- Division Range Div Ends here -->
+                        <br>
+                        <!-- <input id="settingsubmit" type="submit"/> -->
+                        <button  onclick="validateUserSetting()" class="mainbodyBtn" id="validateEnteredData"  type="button">Submit </button>
+                        <button  onclick="undoInputValues()" class="mainbodyBtn" id="resetData" type="button">Reset Settings</button>
+                        <button  onclick="collectusersetting()" class="mainbodyBtn" id="settingsubmit"  type="button">Save Settings</button> 
+                        <!-- <button onclick="settingComplete()" id="settingDone" type="button"> Save Settings</button> -->
+                      </form>
+                      <br>
+                   <b>Note:</b><br>
+                   1. If you leave either of one range value blank then default values will be taken.
+                   <br>
+                   2. While entering numbers make sure they fall in range mentioned.
+                </div>
+                <!-- This is the test area where test takes place: here the question, score, remarks, message is displayed -->
+                <div  id="playsection">
+                   
+                    <!-- <h1>Play Area</h1>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptatum non debitis deleniti odio recusandae
+                    laboriosam, enim commodi assumenda! Adipisci voluptatibus sint sed, rerum quisquam eaque atque porro nihil cum!
+                     -->
+                    <br>
+                    <!-- scoreAfterTest displays score and remarks after test ends -->
+                    <div id="scoreAfterTest"></div>
+                    
+                    <div id="testarea">
+                        <!-- testarea displays countdown, current-score ,  question and inputbox to type ans-->
+                        <!-- message shows current score it updates every time a correct ans is given in answer input box -->
+                        <div>
+                            <p id="message">
+                            <p>
+                        </div>
+                        <!-- countdown message displays time left for test taking place -->
+                        <div class="countdownMessage">
+                            <p>Time Left: <span id="countdown">30 seconds</span></p>
+                        </div>
+                        <!-- Question is displayed here in below label based on random;y generated numbers -->
+                        <label for="answer" id="question"></label>
+                        <!-- here user needs to enter answer -->
+                        <input type="number" name="answer" id="answer" class="quizAnswer" placeholder="Enter ans here!" autocomplete="off"
+                            oninput="calculate()">
+                        <br />
+         
+                </div>
+               
+              
+            </div>
+        </div>
+
+    </div>
+   
+
+    <script src="indexScript.js">     
+    </script>
+    <!-- <script >
+        // if(navigator.serviceWorker){
+        //     navigator.serviceWorker.register('sw.js');
+        // }
+
+        if('serviceWorker' in navigator){
+            window.addEventListener('load', ()=>{
+                navigator.serviceWorker.register('/sw.js')
+                .then(reg => {
+                    console.log('Registered! ', reg);
+                }).catch(err => {
+                    console.log('Registeration failed', err);
+                });
+            });
+        }
+    </script> -->
+    
 </body>
 </html>

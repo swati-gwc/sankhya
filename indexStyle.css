@@ -1,0 +1,355 @@
+/*styling of html document*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*It is the largest div tag and everything inside body is inside this .bodycontainer including navbar */
+.bodycontainer{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    
+    /* font-family: math; */
+    /* font-family: sans-serif;
+     */
+    /* font-family: Copperplate, Papyrus, fantasy; */
+    font-family: "Delius",sans-serif;
+    font-weight: 590;
+    /* font: "Lucida Calligraphy"; */
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+   
+}
+button{
+    /*button was not taking font set in body container thats why explicitly this style is done here*/
+    /* font-family: cursive; */
+    font-family: "Delius",sans-serif;
+    font-weight: 590;
+}
+/*.header only appears when website is seen on mobile otherwise it is not displayes . It is the top bar that appears on mobile showing the title and navbar icon*/
+.header{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background-color: Sienna;
+    color: bisque;
+    display: none;
+
+}
+
+/*tog is the navbar icon that is inside .header div and is only visible in mobile view*/
+.tog{
+    position: relative;
+    left:0;
+    width: 70px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+}
+
+/*This is the page title that is inside header div and is displayed only in mobile view*/
+.pagetitle{
+     width: 70px;
+    height: 100px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* sidebar content */
+.nav{
+    position: relative;
+    width: 20%;
+    transition:  0.5;
+    /* padding: 20px 0; */
+    border-right: 1px solid #3d3511;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    text-align: center;
+
+}
+
+/* sidebar heading */
+#sidebarTitle{
+    padding: 20px 10px 40px 45px;
+    font-size: 29pt;
+    text-decoration: none;
+}
+/* .nav h1{
+    padding: 40px 0px 5px 45px;
+    font-size: 3vw;
+    font-weight: 500;
+    height: 20px;
+} */
+#sidebarTitle:hover{
+    background-color: initial;
+    color: black;
+}
+
+
+/* sidebar links and button are inside this nal ul tag*/
+.nav ul{
+    padding: 0px 0px;
+    width: 100%;
+    
+}
+
+.nav ul li{
+    width: 100%;
+    list-style: none;
+    text-decoration: underline;
+}
+
+/* tabs is the class name of link and button present on sidebar */
+.tabs{
+    width: 100%;
+    display: flex;
+    color: #000;
+    font-size: 18px;
+    padding: 0px 45px;
+    /* height: 60px; */
+    line-height: 60px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* .nav ul li a:hover{ */
+.tabs:hover{
+    color: darkslategray;
+    background-color: beige;
+    padding-left: 50px;
+}
+
+#aboutbtn, #settingbtn{
+    background-color: antiquewhite;
+    border: none;
+    text-decoration: underline;
+
+}
+#aboutbtn:hover, #settingbtn:hover{
+    color: darkslategray;
+    background-color: beige;
+}
+
+/* This is is the main content container, excluding header and sidebar rest all content appears inside this classname */
+.mainbody{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100vh;
+    transition: 0.3s;
+    background-color:  rgba(245, 238, 228, 0.979);
+    /* background-color: Tan; */
+}
+
+/* this is a div tag inside .mainbody Note inside main body there is no other div tag except this one: .submainbody and this submainbody tag was made to avoid css styling applied on mainbody ie. flex*/
+.submainbody{
+   padding: 15px;
+  width: 100%;
+  height: 100%;
+  /* overflow: scroll; */
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+/* Styling buttons with classname  "mainbodyBtn" these are the button which appear inside submainbody*/
+.mainbodyBtn{
+    background-color: Tan; 
+    border: 2px solid Sienna;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    -webkit-transition-duration: 0.4s;/*Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.mainbodyBtn:hover{
+    transform: scale(0.98);    
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+.testBtn{
+ display: inline-table;
+}
+/* This is Start button which starts the test.
+It is wrapped inside submainbody */
+#startbutton{
+    background-color: Tan; 
+    border: 2px solid Sienna;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;/*Safari */
+    transition-duration: 0.4s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    margin-bottom:25px;
+    }
+
+#startbutton:hover{
+    transform: scale(0.98);    
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+#stopbutton{
+    display: none;
+}
+
+input{
+    font-size: 16pt;
+    line-height: 1em;
+    width: 50px;
+}
+/* This is about section which displays the rules and basic information about website */
+#aboutsection{
+    display: none;
+    font-size: 15pt;
+}
+#aboutsection li{
+    list-style: none;
+}
+
+/* This setting section displays all the test setting related option and fields */
+#settingsection{
+    /* background-color: khaki; */
+    display: none;
+    font-size: 18pt;
+    margin-bottom: 13pt;
+   
+}
+
+.boldheading{
+    color: Maroon;
+    font-weight: 600;
+}
+
+input.operationCheckbox{
+    width: 18pt ;
+    height: 18pt;
+}
+
+/* range id is for setting range for particular option asked */
+#additionRange, #subtractionRange, #multiplicationRange, #divisionRange{
+display: none;
+}
+/* When any (add,sub, mul, div) checkbox is clicked then it is toggled and changed its display style from none to block and display corresponding range div tag */
+#additionCheckbox:checked~ #additionRange,
+#subtractionCheckbox:checked~ #subtractionRange,
+#multiplicationCheckbox:checked~ #multiplicationRange,
+#divisionCheckbox:checked~ #divisionRange
+{
+display: block;
+}
+
+
+.rangeInputBox{
+width: 50pt;
+}
+
+#settingsubmit , #resetData{
+display:none;
+}
+
+#playsection{
+    display: none;
+    font-size: 22pt;
+    
+}
+
+input.quizAnswer{
+    font-size: 18pt;
+    width: 180px;
+
+}
+
+#countdown{
+    color: brown;
+}
+
+
+/* This is to make website responsive, if website is viewed in screen width whose max-width is only 989px then below changes will be done. One imp change it does is that is converts sidebar to navbar dropdown icon */
+@media screen and (max-width: 989px)
+{
+    .bodycontainer{
+        font-family: "Delius",Arial, Helvetica, sans-serif;
+        font-weight: 400;
+    }
+    button{
+        font-family: "Delius",sans-serif;
+    }
+    .header{
+        display: flex;
+    }
+    #sidebarTitle{
+        display: none;
+    }
+    /* changes done to navbar to change settings to convert it from sidebar to normal navbar icon dropdown */
+    .nav{
+        position: relative;
+        left: -500px;
+        display: none;
+        border: none;
+        
+    }
+
+    .nav h1{
+        font-size: 8vw;
+    }
+    .mainbody{
+        position: relative;
+        top:0;
+        left:0;
+        width: 100%;
+    }
+
+    #aboutbtn, #settingbtn{
+       
+        background-color: tan;
+    }
+    .rangeInputBox{
+        width: 38pt;
+        }
+    /* .showCrossNavIcon class is added via Javascript code and hence this is to ensure toggle of icon from bar to cross and vice n verca to change  */
+    .showCrossNavIcon{
+        position: absolute;
+        top: 50px;
+        left:0;
+        width: 100%;
+        display: block;
+        z-index: 5;
+        background-color: tan;
+    }
+    
+    
+
+}
+
