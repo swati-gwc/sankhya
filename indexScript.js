@@ -151,7 +151,7 @@ function validateUserSetting() {
     // timeSetByUser = prompt("Set maximum time you need to play(in seconds only)", "30");
     timeSetByUser= document.getElementById("testTime").value;
   
-    if (timeSetByUser != null && timeSetByUser>0 && timeSetByUser<300) {
+    if (timeSetByUser != null && timeSetByUser>0 && timeSetByUser<301) {
         attemptTime = timeSetByUser;
         alert("Sankhya has saved time as you told. Time set = "+attemptTime+" second");
     }   
